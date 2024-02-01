@@ -1,4 +1,4 @@
-package com.example.bebetta.ui
+package com.example.bebetta.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,23 +8,15 @@ import android.view.ViewGroup
 import com.example.bebetta.R
 
 
-class HomeFragment : Fragment() {
+class ShopFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_shop, container, false)
     }
 
 

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="result"
+            type="com.example.bebetta.models.Matches" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:padding="10dp"
+            app:cardBackgroundColor="#595757"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="5dp"
+            app:layout_goneMarginEnd="5dp"
+            app:layout_goneMarginStart="5dp"
+            app:layout_goneMarginTop="5dp"
+
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/team1_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    loadImageFromUrl="@{result.team1_img}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toStartOf="@+id/vs_text"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/esp_bg" />
+
+                <ImageView
+                    android:id="@+id/team2_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="20dp"
+                    loadImageFromUrl="@{result.team2_img}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/vs_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/atl_madrid"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/vs_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="vs"
+                    android:textColor="@color/Cream"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/team1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{result.team1_name}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toEndOf="@+id/team1_image"
+                    app:layout_constraintStart_toStartOf="@+id/team1_image"
+                    app:layout_constraintTop_toBottomOf="@+id/team1_image" />
+
+                <TextView
+                    android:id="@+id/team2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{result.team2_name}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toEndOf="@+id/team2_image"
+                    app:layout_constraintStart_toStartOf="@+id/team2_image"
+                    app:layout_constraintTop_toBottomOf="@+id/team2_image" />
+
+                <TextView
+                    android:id="@+id/team1_goals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@{String.valueOf(result.team1_goals)}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toEndOf="@+id/team1_name"
+                    app:layout_constraintHorizontal_bias="0.483"
+                    app:layout_constraintStart_toStartOf="@+id/team1_name"
+                    app:layout_constraintTop_toBottomOf="@+id/team1_name" />
+
+                <TextView
+                    android:id="@+id/team2_goals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@{String.valueOf(result.team2_goals)}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toEndOf="@+id/team2_name"
+                    app:layout_constraintHorizontal_bias="0.505"
+                    app:layout_constraintStart_toStartOf="@+id/team2_name"
+                    app:layout_constraintTop_toBottomOf="@+id/team2_name" />
+
+                <TextView
+                    android:id="@+id/bet_now_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="#928A8A"
+                    android:fontFamily="@font/anton"
+                    android:gravity="center"
+                    android:text="BET NOW"
+                    android:textColor="@color/Cream"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="23dp"
+                    android:text="@{result.time}"
+                    android:textColor="@color/coral"
+                    android:textSize="11sp"
+                    app:fontFamily="@font/anton"
+                    app:layout_constraintEnd_toStartOf="@+id/team2_goals"
+                    app:layout_constraintHorizontal_bias="0.648"
+                    app:layout_constraintStart_toEndOf="@+id/team1_goals"
+                    app:layout_constraintTop_toBottomOf="@+id/team1_name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

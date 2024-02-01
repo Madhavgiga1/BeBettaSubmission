@@ -1,5 +1,6 @@
 package com.example.bebetta.di
 
+import com.example.bebetta.data.network.api
 import java.util.concurrent.TimeUnit
 import dagger.Module
 import dagger.Provides
@@ -16,17 +17,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAuthInterceptor(): AuthInterceptor {
-        return AuthInterceptor(bearer)
-    }
-
-    @Singleton
-    @Provides
-    fun provideHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+    fun provideHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
-            .addInterceptor(authInterceptor) // Add the AuthInterceptor here
             .build()
     }
 
@@ -43,15 +37,15 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ):Retrofit{
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl("BASE_URL")
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory).build()
     }
 
     @Singleton
     @Provides
-    fun provideOpenAppApi(retrofit: Retrofit): OpenAppApi {
-        return retrofit.create(OpenAppApi::class.java)
+    fun provideOpenAppApi(retrofit: Retrofit): api {
+        return retrofit.create(api::class.java)
     }
 
 
